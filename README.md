@@ -1,5 +1,16 @@
 # Prisma Postgres Example: Next.js 15 Starter (Turborepo, Webpack, Node.js, ESM)
 
+## Error with external extensions which references PrismaClient directly i.e Drizzle
+
+```
+@repo/web:dev: Module not found: Can't resolve '.prisma/client/default'
+@repo/web:dev:   1 | module.exports = {
+@repo/web:dev: > 2 |   ...require('.prisma/client/default'),
+@repo/web:dev:     | ^
+@repo/web:dev:   3 | }
+@repo/web:dev:   4 |
+```
+
 This project showcases how to use the Prisma ORM with Prisma Postgres in an ESM monorepo, containing a Next.js application and Prisma package definition, and powered by Turborepo.
 
 It also demonstrates that [@prisma/nextjs-monorepo-workaround-plugin](https://www.npmjs.com/package/@prisma/nextjs-monorepo-workaround-plugin) is no longer needed, as the `prisma-client` generator supports ESM and monorepos out of the box.
