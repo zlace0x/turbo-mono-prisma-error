@@ -1,21 +1,21 @@
 import "./chunk-L2GCRPID.js";
 import {
   getDb
-} from "./chunk-SESSBLMJ.js";
-import "./chunk-Y4JZPMA4.js";
-import "./chunk-TZ5GGMA2.js";
-import "./chunk-YBUNKVKT.js";
+} from "./chunk-IN3DWJ5O.js";
+import "./chunk-AEIPWXAN.js";
+import "./chunk-4HIOFAIG.js";
 import {
   QuoteKind
-} from "./chunk-3L7FRKNQ.js";
-import "./chunk-26DY3I4N.js";
+} from "./chunk-VGQXCFVE.js";
+import "./chunk-I7ZZTHNZ.js";
+import "./chunk-MLKGABMK.js";
 
 // src/seed.ts
+import dotenv from "dotenv";
+dotenv.config();
 var main = async () => {
   console.log("Seeding database...");
-  const prisma = getDb({
-    connectionString: process.env.DIRECT_URL
-  });
+  const prisma = getDb();
   console.time("Seeding complete \u{1F331}");
   await prisma.quotes.deleteMany();
   await prisma.quotes.createMany({

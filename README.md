@@ -2,6 +2,17 @@
 
 ## Error with external extensions which references PrismaClient directly i.e Drizzle
 
+Setup
+
+Run local postgresdb
+
+```
+pnpm i
+turbo dev
+```
+
+Error
+
 ```
 @repo/web:dev: Module not found: Can't resolve '.prisma/client/default'
 @repo/web:dev:   1 | module.exports = {
@@ -35,7 +46,7 @@ It also demonstrates that [@prisma/nextjs-monorepo-workaround-plugin](https://ww
 │   └── database
 │       ├── package.json
 │       ├── prisma
-│       │   └── schema.prisma              # Prisma schema file 
+│       │   └── schema.prisma              # Prisma schema file
 │       ├── src
 │       │   ├── enums.ts
 │       │   ├── index.ts
@@ -67,7 +78,7 @@ To successfully run the project, you will need the following:
   - `postcss.config.js` -> `postcss.config.mjs`
 - Prisma Client with the `prisma-client` generator
   See the [Prisma schema file](./packages/prisma/prisma/schema.prisma) for details.
-  
+
   ```prisma
   generator client {
     provider = "prisma-client"
