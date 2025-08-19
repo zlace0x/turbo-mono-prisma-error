@@ -1,0 +1,40 @@
+{
+  "name": "@repo/database",
+  "type": "module",
+  "version": "1.0.0",
+  "exports": {
+    ".": "./src/index.ts",
+    "./enums": "./src/enums.ts"
+  },
+  "scripts": {
+    "db:migrate:deploy": "prisma migrate deploy",
+    "db:migrate:dev": "prisma migrate dev",
+    "db:push": "prisma db push",
+    "db:seed": "tsx src/seed.ts",
+    "dev": "tsup src/* --format esm --watch",
+    "format": "prisma format",
+    "generate": "prisma generate",
+    "prebuild": "npm run generate",
+    "predev": "npm run generate",
+    "studio": "prisma studio"
+  },
+  "dependencies": {
+    "@prisma/client": "6.11.1",
+    "@prisma/extension-read-replicas": "^0.4.1",
+    "dotenv": "^17.2.1",
+    "drizzle-orm": "^0.44.4"
+  },
+  "devDependencies": {
+    "@repo/typescript-config": "workspace:*",
+    "@types/node": "20.19.9",
+    "eslint": "8.57.1",
+    "prisma": "6.11.1",
+    "rimraf": "5.0.10",
+    "tsup": "8.5.0",
+    "tsx": "4.19.1",
+    "typescript": "5.5.4"
+  },
+  "prisma": {
+    "seed": "tsx ./src/seed.ts"
+  }
+}
