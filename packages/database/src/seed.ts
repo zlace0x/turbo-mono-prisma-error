@@ -1,5 +1,5 @@
 import { getDb } from "./index";
-import { QuoteKind } from "./enums";
+import { QuoteKind } from "@prisma/client";
 import dotenv from "dotenv";
 dotenv.config();
 
