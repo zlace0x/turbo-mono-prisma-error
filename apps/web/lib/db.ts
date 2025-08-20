@@ -1,4 +1,4 @@
-import { getDb } from "@repo/database";
+import { getDb, type DBClient } from "@repo/database";
 
-const prisma = getDb();
+const prisma: DBClient = getDb();
 export default prisma;
