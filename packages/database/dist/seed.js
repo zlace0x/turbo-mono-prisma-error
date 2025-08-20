@@ -1,16 +1,9 @@
-import "./chunk-L2GCRPID.js";
 import {
   getDb
-} from "./chunk-IN3DWJ5O.js";
-import "./chunk-AEIPWXAN.js";
-import "./chunk-4HIOFAIG.js";
-import {
-  QuoteKind
-} from "./chunk-VGQXCFVE.js";
-import "./chunk-I7ZZTHNZ.js";
-import "./chunk-MLKGABMK.js";
+} from "./chunk-HBYUNCMX.js";
 
 // src/seed.ts
+import { QuoteKind } from "@prisma/client";
 import dotenv from "dotenv";
 dotenv.config();
 var main = async () => {

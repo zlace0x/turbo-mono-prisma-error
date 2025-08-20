@@ -1,19 +1,30 @@
-import prisma from "@/lib/db";
-import { QuoteKind } from "@repo/database";
+"use client";
+
+import { QuoteKind, type Quotes } from "@repo/database";
+import { useEffect, useState } from "react";
 
 // Disable caching. If 'force-dynamic' is not used, stale data can be returned from Prisma Client.
 // Learn more here: https://www.prisma.io/docs/orm/more/help-and-troubleshooting/help-articles/nextjs-prisma-client-dynamic.
 export const dynamic = "force-dynamic";
 
-export async function Quotes() {
-  const quotes = await prisma.quotes.findMany({
-    orderBy: {
-      createdAt: "desc",
-    },
-  });
+export function Quotes() {
+  const [quotes, setQuotes] = useState<Quotes[]>([]);
 
-  const opinions = quotes.filter((quote) => quote.kind === QuoteKind.Opinion);
-  const facts = quotes.filter((quote) => quote.kind === QuoteKind.Fact);
+  useEffect(() => {
+    const fetchQuotes = async () => {
+      fetch("/api")
+        .then((res) => res.json())
+        .then((data) => {
+          setQuotes(data.data);
+        });
+    };
+    fetchQuotes();
+  }, []);
+
+  const opinions =
+    quotes && quotes.filter((quote) => quote.kind === QuoteKind.Opinion);
+  const facts =
+    quotes && quotes.filter((quote) => quote.kind === QuoteKind.Fact);
 
   return (
     <div className="w-full max-w-6xl mx-auto space-y-12">
